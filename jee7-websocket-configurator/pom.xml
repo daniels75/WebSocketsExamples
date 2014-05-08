@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pfl.samples</groupId>
+	<artifactId>jee7-websocket-configurator</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>jee7-websocket-configurer Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+    <build>
+        <finalName>jee7-websocket-configurator</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+	       <plugin>
+				  <groupId>org.eclipse.jetty</groupId>
+				  <artifactId>jetty-maven-plugin</artifactId>
+	                <version>9.1.5.v20140505</version>
+	                <configuration>
+					 <connectors>
+					  <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+					   <port>8083</port>
+					  </connector>
+					 </connectors>					
+	                    <webApp>
+	                        <contextPath>/jee7-websocket-configurator</contextPath>
+	                    </webApp>
+	                </configuration>
+	            </plugin>	
+        </plugins>
+    </build>	
+	
+</project>
